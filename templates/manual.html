@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Eventr - Scan
+{% endblock %}
+
+{% block main %}
+		<p>Unfortunately, our optical character recognition could not pick up a date. You can manually enter the image and date here and it will still be added to our registry!</p>
+        <form action = "/manual" method = "POST" enctype = "multipart/form-data">
+    	<div class="form-group">
+    		<input type = "file" name = "file"/>
+    	</div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="title" placeholder="Title" type="text"/>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" class="form-control" name="date" placeholder="Date" type="datetime-local"/>
+        </div>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+{% endblock %}

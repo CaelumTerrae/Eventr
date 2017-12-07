@@ -1,0 +1,5 @@
+cs50
+feedparser
+Flask
+werkzeug
+datefinder

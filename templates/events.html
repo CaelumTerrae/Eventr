@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Eventr - Scan
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Event</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for event in events%}
+                <tr>
+                    <td><a href="{{'/event/%s'%event.image }}">{{event.title}}</a></td>
+                    <td>{{event.date}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+
+    </table>
+{% endblock %}
