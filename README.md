@@ -1,4 +1,4 @@
-# Project Title
+# Eventr
 
 Eventr is a web-app designed with the intent of managing the many event posters posted around Harvard's campus. It uses optical character recognition to automatically recognize event-dates, the end-user just adds the title. Eventr is also an online registry of all other user-posted events, which can be navigated very easily on the site.
 
@@ -17,7 +17,6 @@ This project is built on Flask and SQLite3. It also uses uses several python lib
 ```
 pip install -r requirements.txt
 ```
-* 
 
 ### Installing
 This project cannot be run on the CS50 IDE because it has a python module that cannot be installed on the IDE for some reason. Instead it should be run on a computer using some shell. 

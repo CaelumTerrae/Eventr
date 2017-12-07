@@ -17,6 +17,7 @@ DATABASE = 'events.db'
 
 # Sets the upload folder for uploads to the web application to the static folder so they can be accessed later
 UPLOAD_FOLDER = '/Users/gavinlifrieri/Programming/CS50Final/Eventr/static'
+
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
@@ -27,7 +28,6 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
-
 
 @app.route("/")
 def index():
@@ -49,7 +49,7 @@ def scan():
         
         file = request.files['file']
 
-        if file.filename == '':
+        if file.filename == '' or not allowed_file(file.filename):
             return redirect("/")
 
         # Saves valid vile to the server
@@ -112,7 +112,7 @@ def manual():
             return redirect("/")
         file = request.files['file']
 
-        if file.filename=='':
+        if file.filename=='' or not allowed_file(file.filename):
             return redirect("/")
         
         # Validates input

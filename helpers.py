@@ -3,7 +3,7 @@ from flask import g
 
 # Sets the database variable to refer to events.db
 DATABASE = 'events.db'
-
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 # Helper function to access the database
 def get_db():
     db = getattr(g, '_database', None)
@@ -27,3 +27,7 @@ def insert_event(title,date, image):
     cur.execute("INSERT INTO events (Title,Date,Image) VALUES (?,?,?)", (title,date,image))
     con.commit()
     con.close()
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
